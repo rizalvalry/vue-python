@@ -1,0 +1,67 @@
+{
+  "name": "vue-changes-log",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@popperjs/core": "^2.11.8",
+    "@vuepic/vue-datepicker": "^9.0.1",
+    "axios": "^1.7.3",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.3",
+    "core-js": "^3.8.3",
+    "datatables.net": "^2.1.3",
+    "datatables.net-bs5": "^2.1.3",
+    "datatables.net-fixedheader-bs5": "^4.0.1",
+    "file-saver": "^2.0.5",
+    "moment": "^2.30.1",
+    "vue": "^3.4.36",
+    "vue-chartjs": "^5.3.1",
+    "vue-router": "^4.4.3",
+    "vue3-daterange-picker": "^1.0.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-service": "^5.0.8",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.8.8",
+    "sass": "^1.77.8",
+    "sass-loader": "^16.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}

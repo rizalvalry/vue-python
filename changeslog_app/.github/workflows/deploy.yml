@@ -1,0 +1,34 @@
+name: Deploy Python Application
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+          
+    - name: Load SSH Key
+      run: |
+        echo "${{ secrets.DEPLOYER_SSH_SECRET }}" > /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa
+        echo "${{ vars.DEPLOYER_SSH_KEY }}" > /root/.ssh/id_rsa.pub && chmod 600 /root/.ssh/id_rsa.pub
+        touch /root/.ssh/known_hosts
+        ssh-keyscan -H ${{ vars.DEPLOYER_SSH_KNOWN_HOST }} >> /root/.ssh/known_hosts
+
+    - name: Build Docker image
+      run: |
+        docker build -t changes_log_report_p .
+
+    - name: Stop existing container (if running)
+      run: |
+        docker stop changes_log_report_p || true
+        docker rm changes_log_report_p || true
+
+    - name: Run Docker container
+      run: |
+        docker run -d --name changes_log_report_p -p 5002:5002 changes_log_report_p

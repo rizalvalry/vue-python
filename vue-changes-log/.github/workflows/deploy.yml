@@ -1,0 +1,20 @@
+name: Deploy Vue.js Application
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  step:
+    Deploy-Frontend:
+      build:
+        - name: Load SSH Key
+          run: |
+            mkdir -p /root/.ssh
+            echo "${{ secrets.DEPLOYER_SSH_SECRET }}" > /root/.ssh/id_rsa && chmod 600 /root/.ssh/id_rsa
+            echo "${{ vars.DEPLOYER_SSH_KEY }}" > /root/.ssh/id_rsa.pub && chmod 600 /root/.ssh/id_rsa.pub
+            touch /root/.ssh/known_hosts
+            ssh-keyscan -H ${{ vars.DEPLOYER_SSH_KNOWN_HOST }} >> /root/.ssh/known_hosts
+          with:
+            script: whoami
